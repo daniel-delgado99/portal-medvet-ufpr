@@ -1,0 +1,23 @@
+.navbar {
+	width: 100%;
+	height: 30px;
+	background-color: lightskyblue;
+
+	ul {
+    display: inline-block;
+		list-style: none;
+		margin: 0;
+    padding: 0;
+		li {
+			margin-right: 32px;
+			display: inline-block;
+		}
+	}
+}
+
+.btn-toggle-theme {
+	background-color: #fff;
+	&.checked, &:hover {
+		background-color: #bbb;
+	}
+}

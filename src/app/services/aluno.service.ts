@@ -1,0 +1,36 @@
+import { Injectable } from '@angular/core';
+import { Aluno } from '../model/aluno.model';
+
+// import * as data from '../data/alunos.json';
+
+@Injectable()
+export class AlunoService {
+
+  private alunosList: Aluno[];
+
+  constructor() {
+    if (!this.alunosList) {
+      this.alunosList = require('../data/alunos.json');
+    }
+  }
+
+  public getAlunos() {
+    return this.alunosList;
+  }
+
+  public getAluno(index: number) {
+    return this.alunosList[index];
+  }
+
+  public addAluno(aluno: Aluno) {
+    this.alunosList.push(aluno);
+  }
+
+  public updateAluno(aluno: Aluno, index: number) {
+    this.alunosList[index] = aluno;
+  }
+
+  public removeAluno(index: number) {
+    this.alunosList.splice(index, 1);
+  }
+}

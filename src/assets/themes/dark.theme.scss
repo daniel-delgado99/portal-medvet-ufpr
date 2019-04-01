@@ -1,0 +1,16 @@
+div.theme-wrapper {
+	transition: all .3s ease-in-out;
+	&.dark-theme {
+		background-color: #454545 !important;
+		color: #fff !important;
+
+		.navbar {
+			background-color: darkslateblue !important;
+			color: #fff !important;
+
+			li {
+				transition: all .3s ease-in-out;
+			}
+		}
+	}
+}
