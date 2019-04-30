@@ -1,16 +1,26 @@
-div.theme-wrapper {
-	transition: all .3s ease-in-out;
+.theme-wrapper {
+	transition: all .3s ease-in-out !important;
+
+	.navbar {
+		transition: all .3s ease-in-out !important;
+		li {
+			transition: all .3s ease-in-out !important;
+      a {
+			  transition: all .3s ease-in-out !important;
+      }
+		}
+	}
 	&.dark-theme {
 		background-color: #454545 !important;
 		color: #fff !important;
 
 		.navbar {
 			background-color: darkslateblue !important;
-			color: #fff !important;
-
-			li {
-				transition: all .3s ease-in-out;
-			}
+      li {
+        a {
+			    color: #fff !important;
+        }
+      }
 		}
 	}
 }

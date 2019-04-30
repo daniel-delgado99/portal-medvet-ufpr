@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Aluno } from '../model/aluno.model';
 
-// import * as data from '../data/alunos.json';
+import * as data from '../data/alunos';
 
 @Injectable()
 export class AlunoService {
@@ -9,8 +9,9 @@ export class AlunoService {
   private alunosList: Aluno[];
 
   constructor() {
-    if (!this.alunosList) {
-      this.alunosList = require('../data/alunos.json');
+    this.alunosList = [];
+    for (const item of data.default) {
+      this.alunosList.push(new Aluno(item.name, item.email, item.cpf, item.image));
     }
   }
 

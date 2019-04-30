@@ -1,11 +1,36 @@
-<div class="navbar">
-  <ul>
-    <li>Home</li>
-    <li>Forms</li>
-    <li>Qualquer coisa</li>
-  </ul>
+<div class="navbar-wrapper">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" [routerLink]="['/']">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <!-- <div style="float: right">
-    <button class="btn-toggle-theme" [ngClass]="isDarkTheme ? 'checked' : ''"  (click)="onToggleThemeClick()">Trocar tema</button>
-  </div> -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/']" [routerLinkActiveOptions]="{exact: true}" [routerLinkActive]="'link-active'">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/cadastro']" [routerLinkActive]="'link-active'">Cadastro</a>
+        </li>
+        <!-- <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li> -->
+        <!-- <li class="nav-item" style="float: right"> -->
+        <a class="nav-link btn-toggle-theme" [ngClass]="isDarkTheme ? 'checked' : ''"  (click)="onToggleThemeClick()">Trocar tema</a>
+        <!-- </li> -->
+      </ul>
+    </div>
+  </nav>
 </div>
