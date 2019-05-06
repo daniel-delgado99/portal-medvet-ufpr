@@ -1,44 +1,20 @@
 export default [
-    {
-        name    : 'Nome 1',
-        email   : 'email1@email1.com',
-        cpf     : '12345678900',
-        image   : 'https://static.todamateria.com.br/upload/pi/ng/pinguimimperador-cke.jpg'
-    },
-    {
-        name    : 'Nome 2',
-        email   : 'email2@email2.com',
-        cpf     : '12345678900',
-        image   : 'https://static.todamateria.com.br/upload/pi/ng/pinguimimperador-cke.jpg'
-    },
-    {
-        name    : 'Nome 3',
-        email   : 'email3@email3.com',
-        cpf     : '12345678900',
-        image   : 'https://static.todamateria.com.br/upload/pi/ng/pinguimimperador-cke.jpg'
-    },
-    {
-        name    : 'Nome 4',
-        email   : 'email4@email4.com',
-        cpf     : '12345678900',
-        image   : 'https://static.todamateria.com.br/upload/pi/ng/pinguimimperador-cke.jpg'
-    },
-    {
-        name    : 'Nome 5',
-        email   : 'email5@email5.com',
-        cpf     : '12345678900',
-        image   : 'https://static.todamateria.com.br/upload/pi/ng/pinguimimperador-cke.jpg'
-    },
-    {
-        name    : 'Nome 6',
-        email   : 'email6@email6.com',
-        cpf     : '12345678900',
-        image   : 'https://static.todamateria.com.br/upload/pi/ng/pinguimimperador-cke.jpg'
-    },
-    {
-        name    : 'Nome 7',
-        email   : 'email7@email7.com',
-        cpf     : '12345678900',
-        image   : 'https://static.todamateria.com.br/upload/pi/ng/pinguimimperador-cke.jpg'
-    }
+  {
+    name: 'João da Silva',
+    email: 'joao.silva@gmail.com',
+    cpf: '123.456.789-10  ',
+    cep: '80000-000',
+    addressStreet: 'Rua Muito Legal',
+    addressNumber: 1234,
+    addressNeighbourhood: 'Centro',
+    addressComplement: 'Apto. 12',
+    birthdate: '12/12/2000',
+    bio: 'Eu sou uma pessoa que gosta muito de várias coisas',
+    grr: 'GRR20181234',
+    isEstagiando: true,
+    favoriteAnimal: 'Cachorro',
+    favoriteQuote: 'As pessoas boas devem amar seus inimigos',
+    favoriteColor: '#ffffff',
+    image: 'https://vignette.wikia.nocookie.net/animalplanetsthemostextreme/images/5/57/Arctic_Fox.jpg/revision/latest?cb=20180619235618',
+  }
 ];

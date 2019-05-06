@@ -2,4 +2,33 @@ body {
   margin: 0;
 }
 
+.theme-wrapper {
+  transition: all .3s ease-in-out !important;
+	.navbar {
+		transition: all .3s ease-in-out !important;
+		li {
+			transition: all .3s ease-in-out !important;
+      a {
+			  transition: all .3s ease-in-out !important;
+      }
+		}
+		.logo p {
+			transition: all .3s ease-in-out !important;
+		}
+	}
+}
+
+.ng2-imgcrop {
+    input {
+      margin: 0 20px;
+      width: 90%;
+    }
+    canvas {
+      width: 90%;
+      margin: 20px;
+    }
+}
+
 @import './assets/themes/dark.theme.scss';
+@import './assets/themes/default.theme.scss';
+@import './assets/themes/pink.theme.scss';

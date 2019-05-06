@@ -8,4 +8,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'portal-medvet-ufpr';
   isDarkTheme = false;
+  theme = 'default-theme';
+
+  setTheme(event) {
+    this.theme = event.theme + '-theme';
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { AlunoService } from '../../services/aluno.service';
 import { Aluno } from './../../model/aluno.model';
@@ -14,7 +14,8 @@ import { CropperSettings } from 'ng2-img-cropper';
 })
 export class CadastroAlunoComponent implements OnInit {
 
-  @ViewChild("cropper") cropper;
+  @ViewChild('cropper') cropper;
+  @ViewChild('modalBtn') modalBtn: ElementRef;
 
   alunos: Aluno[];
 
@@ -22,7 +23,9 @@ export class CadastroAlunoComponent implements OnInit {
 
   data: any;
 
-  imgSrc: string = '';
+  imageInput: any;
+
+  imgSrc = '';
 
   cropperSettings: CropperSettings;
 
@@ -41,21 +44,55 @@ export class CadastroAlunoComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.setDefaultImage();
     this.alunos = this.alunosService.getAlunos();
 
     this.form = this.fb.group({
       name: this.fb.control(''),
-      cpf: this.fb.control(''),
       email: this.fb.control(''),
-      image: this.fb.control('')
+      cpf: this.fb.control(''),
+      cep: this.fb.control(''),
+      addressStreet: this.fb.control(''),
+      addressNumber: this.fb.control(''),
+      addressNeighbourhood: this.fb.control(''),
+      addressComplement: this.fb.control(''),
+      birthdate: this.fb.control(''),
+      bio: this.fb.control(''),
+      grr: this.fb.control(''),
+      isEstagiando: this.fb.control(''),
+      favoriteAnimal: this.fb.control(''),
+      favoriteQuote: this.fb.control(''),
+      favoriteColor: this.fb.control(''),
+      image: this.fb.control(''),
     });
   }
 
-  onFormSubmit() {
-    let value = this.form.value;
-		value.image = this.data.image;
+  setDefaultImage() {
+    const n = (Math.random() * 10);
+    let animal = '';
+    if (n >= 0 && n < 2) {
+      animal = 'garyuu';
+    } else if (n >= 2 && n < 3) {
+      animal = 'gyudon';
+    } else if (n >= 3 && n < 4) {
+      animal = 'jiro';
+    } else if (n >= 4 && n < 5) {
+      animal = 'mukurowl';
+    } else if (n >= 5 && n < 6) {
+      animal = 'nuts';
+    } else if (n >= 6 && n < 8) {
+      animal = 'roll';
+    } else {
+      animal = 'uri';
+    }
+    this.imgSrc = `./../../../assets/imgs/animals/${animal}.jpg`;
+  }
 
-	console.log(value);
+  onFormSubmit() {
+    const value = this.form.value;
+    value.image = this.imgSrc;
+
+    console.log(value);
 
     this.alunosService.addAluno(value);
 
@@ -69,22 +106,28 @@ export class CadastroAlunoComponent implements OnInit {
   }
 
   editAluno() {
-    console.log("editAluno")
+    console.log('editAluno');
   }
 
-   fileChangeListener($event) {
-	   console.log("file change listener");
-    var image:any = new Image();
-    var file:File = $event.target.files[0];
-    var myReader:FileReader = new FileReader();
-    var that = this;
-    myReader.onloadend = function (loadEvent:any) {
-        image.src = loadEvent.target.result;
-        that.cropper.setImage(image);
-		that.imgSrc = image.src;
+  openImageSelectModal() {
+    const el: HTMLElement = this.modalBtn.nativeElement as HTMLElement;
+    el.click();
+  }
+
+  fileChangeListener($event) {
+    console.log('file change listener');
+    const image = new Image();
+    const file = $event.target.files[0];
+    const fileReader = new FileReader();
+    const that = this;
+    fileReader.onloadend = (event: any) => {
+      image.src = event.target.result;
+      that.cropper.setImage(image);
     };
+    fileReader.readAsDataURL(file);
+  }
 
-    myReader.readAsDataURL(file);
-	}
-
+  saveImg() {
+    this.imgSrc = this.data.image;
+  }
 }

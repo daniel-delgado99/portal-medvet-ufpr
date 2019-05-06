@@ -1,12 +1,12 @@
-$primary-color: #272727;
-$secondary-color: #333333;
-$terciary-color: #454545;
+$primary-color: #519839;
+$secondary-color: #5aac44;
+$terciary-color: #61bd4f;
 $navbar-text-color: #fff; 
-$text-color: #fff; 
-$background-color: #454545;
+$text-color: #000; 
+$background-color: #fff;
 
 .theme-wrapper {
-	&.dark-theme {
+	&.default-theme {
 		background-color: $background-color !important;
 		color: $text-color !important;
 

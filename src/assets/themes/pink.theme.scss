@@ -1,12 +1,12 @@
-$primary-color: #272727;
-$secondary-color: #333333;
-$terciary-color: #454545;
+$primary-color: #e68bbe;
+$secondary-color: #eea1cd;
+$terciary-color: #f4b8da;
 $navbar-text-color: #fff; 
-$text-color: #fff; 
-$background-color: #454545;
+$text-color: #e68bbe; 
+$background-color: #fff;
 
 .theme-wrapper {
-	&.dark-theme {
+	&.pink-theme {
 		background-color: $background-color !important;
 		color: $text-color !important;
 
@@ -16,7 +16,7 @@ $background-color: #454545;
         a {
 			    color: $navbar-text-color !important;
 
-					&:hover, &.link-active {
+          &:hover, &.link-active {
 						background-color: $secondary-color !important;
 					}
         }

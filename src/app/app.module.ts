@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CadastroAlunoComponent } from './components/cadastro-aluno/cadastro-aluno.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ImageCropperComponent } from 'ng2-img-cropper';
 
 // Services
@@ -22,7 +23,8 @@ import { AlunoService } from './services/aluno.service';
     HomeComponent,
     NavbarComponent,
     CadastroAlunoComponent,
-    ImageCropperComponent
+    ImageCropperComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

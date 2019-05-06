@@ -1,5 +1,5 @@
-<div class="theme-wrapper" [ngClass]="isDarkTheme ? 'dark-theme' : ''">
-  <app-navbar (toggleThemeClicked)="isDarkTheme = !isDarkTheme"></app-navbar>
+<div class="theme-wrapper" [ngClass]="theme">
+  <app-navbar (toggleThemeClicked)="setTheme($event)"></app-navbar>
   <div class="page-limiter">
     <router-outlet></router-outlet>
   </div>

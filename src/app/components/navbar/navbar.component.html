@@ -1,36 +1,50 @@
 <div class="navbar-wrapper">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" [routerLink]="['/']">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <div class="logo" [routerLink]="['/']" (click)="collapseNavbar()">
+      <img src="../../assets/imgs/logo.png" class="logo-image"/>
+      <div>
+        <p>Medicina</p>
+        <p>Veterinária</p>
+      </div>
+    </div>
+    <button #buttonCollapse class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/']" [routerLinkActiveOptions]="{exact: true}" [routerLinkActive]="'link-active'">Home</a>
+          <a class="nav-link" [routerLink]="['/']" [routerLinkActiveOptions]="{exact: true}" [routerLinkActive]="'link-active'" (click)="collapseNavbar()">
+          <i class="fas fa-home"></i>Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/cadastro']" [routerLinkActive]="'link-active'">Cadastro</a>
-        </li>
-        <!-- <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
+          <a class="nav-link" [routerLink]="['/documentos']" [routerLinkActive]="'link-active'" (click)="collapseNavbar()">
+          <i class="fas fa-file-alt"></i>Documentos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
-        </li> -->
-        <!-- <li class="nav-item" style="float: right"> -->
-        <a class="nav-link btn-toggle-theme" [ngClass]="isDarkTheme ? 'checked' : ''"  (click)="onToggleThemeClick()">Trocar tema</a>
-        <!-- </li> -->
+          <a class="nav-link" [routerLink]="['/cadastro']" [routerLinkActive]="'link-active'" (click)="collapseNavbar()">
+          <i class="fas fa-users"></i>Cadastro</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/alunos']" [routerLinkActive]="'link-active'" (click)="collapseNavbar()">
+          <i class="fas fa-users"></i>Alunos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/sobre']" [routerLinkActive]="'link-active'" (click)="collapseNavbar()">
+          <i class="fas fa-paw"></i>Sobre o curso</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/contato']" [routerLinkActive]="'link-active'" (click)="collapseNavbar()">
+          <i class="fas fa-phone"></i>Contato</a>
+        </li>
       </ul>
+      <div class="form-inline navbar-text">
+        <select (input)="onToggleThemeClick($event)" class="form-control styled-select">
+          <option value="default" selected>Tema padrão</option>
+          <option value="dark">Tema escuro</option>
+          <option value="pink">Tema rosa</option>
+        </select>
+      </div>
     </div>
   </nav>
 </div>

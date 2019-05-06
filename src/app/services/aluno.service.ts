@@ -11,7 +11,25 @@ export class AlunoService {
   constructor() {
     this.alunosList = [];
     for (const item of data.default) {
-      this.alunosList.push(new Aluno(item.name, item.email, item.cpf, item.image));
+      this.alunosList.push(new Aluno(
+        item.name,
+        item.email,
+        item.cpf,
+        item.cep,
+        item.addressStreet,
+        item.addressNumber,
+        item.addressNeighbourhood,
+        item.addressComplement,
+        item.birthdate,
+        item.bio,
+        item.grr,
+        item.isEstagiando,
+        item.favoriteAnimal,
+        item.favoriteQuote,
+        item.favoriteColor,
+        item.image,
+        )
+      );
     }
   }
 

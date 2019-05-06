@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,19 +7,26 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  @ViewChild('buttonCollapse') buttonCollapse;
 
   @Output() toggleThemeClicked = new EventEmitter<any>();
 
-  isDarkTheme: boolean = false;
+  theme = 'default-theme';
 
   constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
-  onToggleThemeClick() {
-    this.isDarkTheme = !this.isDarkTheme;
-    this.toggleThemeClicked.emit({darkTheme: this.isDarkTheme});
+  onToggleThemeClick(event) {
+    const theme = event.target.value;
+    this.toggleThemeClicked.emit({theme});
   }
 
+  collapseNavbar() {
+    if (window.innerWidth < 992) {
+      const el: HTMLElement = this.buttonCollapse.nativeElement as HTMLElement;
+      el.click();
+    }
+  }
 }

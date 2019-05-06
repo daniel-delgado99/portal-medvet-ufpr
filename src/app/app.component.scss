@@ -3,3 +3,9 @@
     padding: 32px;
     min-height: 100vh;
 }
+
+@media screen and (min-width: 992px) {
+  .page-limiter {
+    padding: 32px 60px;
+  }
+}
