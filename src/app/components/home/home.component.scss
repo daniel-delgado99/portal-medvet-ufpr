@@ -1,0 +1,23 @@
+.carousel-container {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.section-divider {
+  width: 200%;
+  margin-left: -50%;
+  margin-top: 32px;
+}
+
+.avisos-container {
+  margin-top: 16px;
+  .aviso {
+    padding: 8px 0;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .carousel-container {
+    width: 100%;
+  }
+}

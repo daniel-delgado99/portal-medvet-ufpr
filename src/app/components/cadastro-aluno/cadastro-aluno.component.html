@@ -58,9 +58,11 @@
 				<input formControlName="grr" type="text" class="form-control"/>
 			</div>
 			<div class="col-md-3 form-group">
-				<!-- <label></label> -->
-				<input formControlName="isEstagiando" type="checkbox" class=""/>
-        <span>Você está estagiando no momento?</span>
+				<label>Você está estagiando no momento?</label>
+				<select formControlName="isEstagiando">
+          <option [value]="false" selected>Não</option>
+          <option [value]="true">Sim</option>
+        </select>
 			</div>
 			<div class="col-md-6 form-group">
 				<label>Animal Favorito</label>
@@ -74,7 +76,7 @@
 				<label>Cor favorita</label>
 				<input formControlName="favoriteColor" type="color" class="form-control"/>
 			</div>
-      <button class="btn btn-success" type="button" (click)="onFormSubmit()">Salvar</button>
+      <button class="btn btn-primary" type="button" (click)="onFormSubmit()">Salvar</button>
       <button hidden #modalBtn data-toggle="modal" data-target="#selectImageModal"></button>
 		</form>
 	</div>

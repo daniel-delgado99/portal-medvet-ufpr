@@ -1,0 +1,32 @@
+.mapouter {
+  text-align: right;
+  position: relative;
+  margin: 0 auto;
+  z-index: 11;
+}
+
+.gmap_canvas {
+  overflow: hidden;
+  background: none !important;
+
+  iframe {
+    width: 100% !important;
+    height: 300px !important;
+  }
+}
+
+.spinner-container {
+  left: 35%;
+  top: 25%;
+  position: absolute;
+  z-index: 10;
+  i {
+    font-size: 150px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .spinner-container {
+    left: 30%;
+  }
+}

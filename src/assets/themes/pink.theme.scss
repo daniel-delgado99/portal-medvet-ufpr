@@ -1,8 +1,8 @@
-$primary-color: #e68bbe;
-$secondary-color: #eea1cd;
+$primary-color: #d25aa6;
+$secondary-color: #e079b4;
 $terciary-color: #f4b8da;
-$navbar-text-color: #fff; 
-$text-color: #e68bbe; 
+$navbar-text-color: #fff;
+$text-color: #c24772;
 $background-color: #fff;
 
 .theme-wrapper {
@@ -12,8 +12,8 @@ $background-color: #fff;
 
 		.navbar {
 			background-color: $primary-color !important;
-      li {
-        a {
+			li {
+				a {
 			    color: $navbar-text-color !important;
 
           &:hover, &.link-active {
@@ -26,12 +26,31 @@ $background-color: #fff;
 			}
 		}
 
+    .modal {
+      .modal-header {
+			  background-color: $primary-color !important;
+        color: $navbar-text-color !important;
+      }
+
+      .modal-content {
+			  background-color: $background-color !important;
+      }
+
+      button.close {
+        color: $text-color !important;
+      }
+		}
+
 		select {
 			background-color: $secondary-color !important;
 			color: $navbar-text-color !important;
 		}
 
-		button.primary-button {
+    hr {
+			background-color: $primary-color !important;
+    }
+
+		button.btn.btn-primary {
 			background-color: $primary-color;
 
 			&:hover {
@@ -39,12 +58,17 @@ $background-color: #fff;
 			}
 		}
 
-		button.secondary-button {
+		button.btn.btn-secondary {
 			background-color: $secondary-color;
 
 			&:hover {
 				background-color: $terciary-color;
 			}
 		}
+
+    .footer {
+      background-color: $primary-color;
+      color: $navbar-text-color !important;
+    }
 	}
 }

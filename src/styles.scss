@@ -3,6 +3,7 @@ body {
 }
 
 .theme-wrapper {
+  overflow: hidden;
   transition: all .3s ease-in-out !important;
 	.navbar {
 		transition: all .3s ease-in-out !important;
@@ -16,6 +17,17 @@ body {
 			transition: all .3s ease-in-out !important;
 		}
 	}
+  select, textarea {
+    transition: all .3s ease-in-out !important;
+  }
+}
+
+h3 {
+  margin-bottom: 20px;
+}
+
+.btn {
+  outline: none !important;
 }
 
 .ng2-imgcrop {

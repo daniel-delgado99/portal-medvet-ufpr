@@ -1,8 +1,8 @@
-$primary-color: #519839;
-$secondary-color: #5aac44;
-$terciary-color: #61bd4f;
-$navbar-text-color: #fff; 
-$text-color: #000; 
+$primary-color: #22673b;
+$secondary-color: #1c5430;
+$terciary-color: #287a46;
+$navbar-text-color: #fff;
+$text-color: #000;
 $background-color: #fff;
 
 .theme-wrapper {
@@ -12,18 +12,33 @@ $background-color: #fff;
 
 		.navbar {
 			background-color: $primary-color !important;
-      li {
-        a {
+			li {
+				a {
 			    color: $navbar-text-color !important;
 
 					&:hover, &.link-active {
 						background-color: $secondary-color !important;
 					}
-        }
-      }
+				}
+			}
 			.logo p {
 				color: $navbar-text-color !important;
 			}
+		}
+
+		.modal {
+      .modal-header {
+			  background-color: $primary-color !important;
+        color: $navbar-text-color !important;
+      }
+
+      .modal-content {
+			  background-color: $background-color !important;
+      }
+
+      button.close {
+        color: $text-color !important;
+      }
 		}
 
 		select {
@@ -31,7 +46,11 @@ $background-color: #fff;
 			color: $navbar-text-color !important;
 		}
 
-		button.primary-button {
+    hr {
+			background-color: $primary-color !important;
+    }
+
+		button.btn.btn-primary {
 			background-color: $primary-color;
 
 			&:hover {
@@ -39,12 +58,17 @@ $background-color: #fff;
 			}
 		}
 
-		button.secondary-button {
+		button.btn.btn-secondary {
 			background-color: $secondary-color;
 
 			&:hover {
 				background-color: $terciary-color;
 			}
 		}
+
+    .footer {
+      background-color: $primary-color;
+      color: $navbar-text-color !important;
+    }
 	}
 }
