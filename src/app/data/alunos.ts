@@ -1,7 +1,7 @@
 export default [
   {
-    name: 'João da Silva',
-    email: 'joao.silva@gmail.com',
+    name: 'Jão das Neves',
+    email: 'jaoneves@gmail.com',
     cpf: '123.456.789-10  ',
     cep: '80000-000',
     addressStreet: 'Rua Muito Legal',

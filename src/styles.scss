@@ -1,4 +1,10 @@
+@font-face {
+  font-family: "Neo Sans";
+  src: url("./assets/fonts/NeoSansStd-Regular.otf");
+}
+
 body {
+  font-family: "Neo Sans";
   margin: 0;
 }
 
@@ -24,6 +30,10 @@ body {
 
 h3 {
   margin-bottom: 20px;
+}
+
+h1 {
+  margin-bottom: 48px;
 }
 
 .btn {

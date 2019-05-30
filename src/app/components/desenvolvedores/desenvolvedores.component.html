@@ -1,3 +1,17 @@
-<p>
-  desenvolvedores works!
-</p>
+<div class="desenvolvedores-container">
+  <div class="dev-list row">
+    <div class="col-md-12">
+      <h1>Desenvolvedores</h1>
+      <div class="row">
+        <div class="dev-item col-md-4" *ngFor="let dev of devs; let i = index">
+          <div class="row">
+            <img [src]="dev.foto"/>
+          </div>
+          <h5>{{dev.nome}}</h5>
+          <p>{{dev.contato}}</p>
+          <p>{{dev.cargo}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

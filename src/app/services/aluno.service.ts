@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Aluno } from '../model/aluno.model';
 
 import * as data from '../data/alunos';
@@ -33,11 +34,11 @@ export class AlunoService {
     }
   }
 
-  public getAlunos() {
+  public getAlunos(): Aluno[] {
     return this.alunosList;
   }
 
-  public getAluno(index: number) {
+  public getAluno(index: number): Aluno {
     return this.alunosList[index];
   }
 

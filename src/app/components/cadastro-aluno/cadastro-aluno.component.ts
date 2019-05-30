@@ -101,14 +101,6 @@ export class CadastroAlunoComponent implements OnInit {
     this.form.reset();
   }
 
-  removeAluno(index: number) {
-    this.alunosService.removeAluno(index);
-  }
-
-  editAluno() {
-    console.log('editAluno');
-  }
-
   openImageSelectModal() {
     const el: HTMLElement = this.modalBtn.nativeElement as HTMLElement;
     el.click();

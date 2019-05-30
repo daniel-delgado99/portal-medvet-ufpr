@@ -51,3 +51,9 @@
 .form-group {
   display: inline-block;
 }
+
+@media screen and (min-width: 992px) {
+  .result-image {
+    margin-bottom: 48px;
+  }
+}
