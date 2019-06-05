@@ -4,33 +4,36 @@
       <h1>Alunos</h1>
       <div class="row">
         <div
-          class="col-md-4"
+          class="col-md-4 aluno-card"
           *ngFor="let aluno of alunos; let i = index"
-          style="border-bottom: 1px solid #d2d2d2;"
         >
-          <button
-            class="btn btn-danger"
-            type="button"
-            style="float: right;"
-            (click)="removeAluno(i)"
-          >
-            Deletar
-          </button>
-          <button
-            class="btn btn-primary"
-            type="button"
-            style="float: right;"
-            (click)="editAluno()"
-          >
-            Editar
-          </button>
-          <div class="col-md-4">
-            <img [src]="aluno.image" class="img-aluno" />
-          </div>
-          <div class="col-md-8">
-            <p>{{ aluno.name }}</p>
-            <p>{{ aluno.cpf }}</p>
-            <p>{{ aluno.email }}</p>
+          <div class="row">
+            <div class="col-md-4">
+              <img [src]="aluno.image" class="img-aluno" />
+            </div>
+            <div class="col-md-6">
+              <p>{{ aluno.name }}</p>
+              <p>{{ aluno.cpf }}</p>
+              <p>{{ aluno.email }}</p>
+            </div>
+            <div class="col-md-2">
+              <button
+                class="btn btn-danger"
+                type="button"
+                style="float: right;"
+                (click)="removeAluno(i)"
+              >
+                Deletar
+              </button>
+              <button
+                class="btn btn-primary"
+                type="button"
+                style="float: right;"
+                (click)="editAluno()"
+              >
+                Editar
+              </button>
+            </div>
           </div>
         </div>
       </div>
