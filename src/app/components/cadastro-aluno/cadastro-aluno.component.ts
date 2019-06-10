@@ -1,11 +1,10 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { AlunoService } from '../../services/aluno.service';
 import { Aluno } from './../../model/aluno.model';
 
 import { CropperSettings } from 'ng2-img-cropper';
-
-
 
 @Component({
   selector: 'app-cadastro-aluno',
@@ -15,9 +14,15 @@ import { CropperSettings } from 'ng2-img-cropper';
 export class CadastroAlunoComponent implements OnInit {
 
   @ViewChild('cropper') cropper;
-  @ViewChild('modalBtn') modalBtn: ElementRef;
+  @ViewChild('modalImageBtn') modalImageBtn: ElementRef;
+  @ViewChild('modalSucessBtn') modalSuccessBtn: ElementRef;
+  @ViewChild('modalErrorBtn') modalErrorBtn: ElementRef;
 
-  alunos: Aluno[];
+  cpfMask = [/[1-9]/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '-', /\d/, /\d/];
+
+  cepMask = [/[1-9]/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/];
+
+  grrMask = ['G', 'R', 'R', /[1-9]/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/];
 
   form: FormGroup;
 
@@ -27,10 +32,18 @@ export class CadastroAlunoComponent implements OnInit {
 
   imgSrc = '';
 
+  idAluno: number;
+
+  aluno: Aluno;
+
+  errorModalText = 'Erro!';
+
+
   cropperSettings: CropperSettings;
 
   constructor(private alunosService: AlunoService,
-              private fb: FormBuilder) {
+              private fb: FormBuilder,
+              private route: ActivatedRoute) {
         this.cropperSettings = new CropperSettings();
         this.cropperSettings.width = 200;
         this.cropperSettings.height = 200;
@@ -44,26 +57,31 @@ export class CadastroAlunoComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.setDefaultImage();
-    this.alunos = this.alunosService.getAlunos();
+    this.idAluno = this.route.snapshot.params['id'];
+    if (this.idAluno > 0) {
+      this.aluno = this.alunosService.getAluno(this.idAluno);
+      this.imgSrc = this.aluno.image;
+    } else {
+      this.setDefaultImage();
+    }
 
     this.form = this.fb.group({
-      name: this.fb.control(''),
-      email: this.fb.control(''),
-      cpf: this.fb.control(''),
-      cep: this.fb.control(''),
-      addressStreet: this.fb.control(''),
-      addressNumber: this.fb.control(''),
-      addressNeighbourhood: this.fb.control(''),
-      addressComplement: this.fb.control(''),
-      birthdate: this.fb.control(''),
-      bio: this.fb.control(''),
-      grr: this.fb.control(''),
-      isEstagiando: this.fb.control(''),
-      favoriteAnimal: this.fb.control(''),
-      favoriteQuote: this.fb.control(''),
-      favoriteColor: this.fb.control(''),
-      image: this.fb.control(''),
+      name: this.fb.control((this.aluno && this.aluno.name) || '', Validators.required),
+      email: this.fb.control((this.aluno && this.aluno.email) || '', Validators.required),
+      cpf: this.fb.control((this.aluno && this.aluno.cpf) || '', Validators.required),
+      cep: this.fb.control((this.aluno && this.aluno.cep) || ''),
+      addressStreet: this.fb.control((this.aluno && this.aluno.addressStreet) || ''),
+      addressNumber: this.fb.control((this.aluno && this.aluno.addressNumber) || ''),
+      addressNeighbourhood: this.fb.control((this.aluno && this.aluno.addressNeighbourhood) || ''),
+      addressComplement: this.fb.control((this.aluno && this.aluno.addressComplement) || ''),
+      birthdate: this.fb.control((this.aluno && this.aluno.birthdate) || ''),
+      bio: this.fb.control((this.aluno && this.aluno.bio) || ''),
+      grr: this.fb.control((this.aluno && this.aluno.grr) || ''),
+      isEstagiando: this.fb.control((this.aluno && this.aluno.isEstagiando) || ''),
+      favoriteAnimal: this.fb.control((this.aluno && this.aluno.favoriteAnimal) || ''),
+      favoriteQuote: this.fb.control((this.aluno && this.aluno.favoriteQuote) || ''),
+      favoriteColor: this.fb.control((this.aluno && this.aluno.favoriteColor) || ''),
+      image: this.fb.control((this.aluno && this.aluno.image) || ''),
     });
   }
 
@@ -90,19 +108,37 @@ export class CadastroAlunoComponent implements OnInit {
 
   onFormSubmit() {
     const value = this.form.value;
+    if (!value.name || !value.cpf || !value.email) {
+      if (!value.email) {
+        this.errorModalText = 'Favor preencher o e-mail!';
+      }
+      if (!value.cpf) {
+        this.errorModalText = 'Favor preencher o CPF!';
+      }
+      if (!value.name) {
+        this.errorModalText = 'Favor preencher o nome!';
+      }
+      const el: HTMLElement = this.modalErrorBtn.nativeElement as HTMLElement;
+      el.click();
+
+      return;
+    }
+
     value.image = this.imgSrc;
-
-    console.log(value);
-
-    this.alunosService.addAluno(value);
-
-    this.alunos = this.alunosService.getAlunos();
-
+    if (this.idAluno > 0) {
+      this.alunosService.updateAluno(value, this.idAluno);
+    } else {
+      this.alunosService.addAluno(value);
+    }
     this.form.reset();
+    this.setDefaultImage();
+    this.idAluno = null;
+    const el: HTMLElement = this.modalSuccessBtn.nativeElement as HTMLElement;
+    el.click();
   }
 
   openImageSelectModal() {
-    const el: HTMLElement = this.modalBtn.nativeElement as HTMLElement;
+    const el: HTMLElement = this.modalImageBtn.nativeElement as HTMLElement;
     el.click();
   }
 

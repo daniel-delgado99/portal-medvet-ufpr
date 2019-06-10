@@ -16,17 +16,17 @@
 }
 
 .spinner-container {
-  left: 35%;
-  top: 25%;
+  left: 42%;
+  top: 35%;
   position: absolute;
   z-index: 10;
   i {
-    font-size: 150px;
+    font-size: 80px;
   }
 }
 
 @media screen and (max-width: 992px) {
   .spinner-container {
-    left: 30%;
+    left: 40%;
   }
 }

@@ -14,19 +14,19 @@ export class DesenvolvedoresComponent implements OnInit {
   ngOnInit() {
     this.devs = [{
       nome: 'Daniel Elias Delgado',
-      foto: 'https://d.wattpad.com/story_parts/312025151/images/14754abb9e218119967800248515.jpg',
-      contato: 'noideaforemails@gmail.com',
-      cargo: 'Faz-tudo'
+      foto: 'https://http2.mlstatic.com/letra-d-decorativa-verde-tiffany-em-mdf-19x18-cm-D_NQ_NP_415515-MLB25258309837_012017-F.jpg',
+      contato: 'daniel.delgado9950@gmail.com',
+      cargo: 'Desenvolvedor Front-End'
     }, {
       nome: 'Gustavo Lara Vaz',
-      foto: 'https://assets-jpcust.jwpsrv.com/thumbnails/idzhcp6y-720.jpg',
-      contato: 'guslara@gmail.com',
-      cargo: 'Sacola'
+      foto: 'https://st.depositphotos.com/2899123/3753/v/950/depositphotos_37531453-stock-illustration-g-orange-handwritten-letters-on.jpg',
+      contato: 'gulara@gmail.com',
+      cargo: 'Desenvolvedor Fullstack'
     }, {
       nome: 'Lucas Antonio Amorim Moroski',
-      foto: 'https://img.quizur.com/f/img5ce56ac33745a8.13458145.jpeg?lastEdited=1558538982',
+      foto: 'https://images-submarino.b2w.io/produtos/01/00/oferta/34910/8/34910824_1GG.jpg',
       contato: 'lucasmoroskicurso@gmail.com',
-      cargo: 'Suporte'
+      cargo: 'Desenvolvedor Fullstack'
     }];
   }
 

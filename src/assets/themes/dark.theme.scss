@@ -53,23 +53,41 @@ $background-color: #121212;
     }
 
 		button.btn.btn-primary {
-			background-color: $primary-color;
+			background-color: $primary-color !important;
 
 			&:hover {
-				background-color: $secondary-color;
+				background-color: $secondary-color !important;
 			}
 		}
 
 		button.btn.btn-secondary {
-			background-color: $secondary-color;
+			background-color: $secondary-color !important;
 
 			&:hover {
-				background-color: $terciary-color;
+				background-color: $terciary-color !important;
 			}
 		}
 
+    input, select, textarea {
+      background-color: $secondary-color !important;
+      color: $text-color !important;
+
+      &::placeholder {
+        color: $text-color !important;
+        opacity: 0.7;
+      }
+    }
+
+    .aluno-card {
+      border-color: $primary-color !important;
+
+      &:hover {
+				background-color: $terciary-color !important;
+      }
+    }
+
     .footer {
-      background-color: $primary-color;
+      background-color: $primary-color !important;
       color: $navbar-text-color !important;
     }
 	}

@@ -1,100 +1,247 @@
 <div class="row">
-	<div class="col-md-12">
+  <div class="col-md-12">
     <h1>Cadastro</h1>
-		<form [formGroup]="form">
-      <div class="col-md-4 float-right">
+    <form [formGroup]="form" class="row">
+      <div class="col-md-4 mobile-image" style="margin-bottom: 24px;">
         <div class="result-image" *ngIf="imgSrc">
-            <img [src]="imgSrc">
-            <div class="overlap-button" (click)="openImageSelectModal()">
-              <span><i class="fas fa-camera"></i>Selecionar foto</span>
-            </div>
+          <img [src]="imgSrc" />
+          <div class="overlap-button" (click)="openImageSelectModal()">
+            <span><i class="fas fa-camera"></i>Selecionar foto</span>
+          </div>
         </div>
       </div>
-      <div class="col-md-5 form-group">
-        <label>Nome</label>
-        <input formControlName="name" type="text" class="form-control"/>
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-8 form-group">
+            <label>Nome*</label>
+            <input formControlName="name" placeholder="Seu nome" type="text" class="form-control" />
+          </div>
+          <div class="col-md-4 form-group">
+            <label>Data de nascimento</label>
+            <input
+              placeholder="dd/mm/aaaa"
+              formControlName="birthdate"
+              type="date"
+              class="form-control"
+            />
+          </div>
+          <div class="col-md-7 form-group">
+            <label>Email*</label>
+            <input formControlName="email"  placeholder="email@exemplo.com" type="text" class="form-control" />
+          </div>
+          <div class="col-md-5 form-group">
+            <label>CPF*</label>
+            <input formControlName="cpf" [textMask]="{mask: cpfMask}" placeholder="000.000.000-00" type="text" class="form-control" />
+          </div>
+          <div class="col-md-4 form-group">
+            <label>CEP</label>
+            <input formControlName="cep" [textMask]="{mask: cepMask}"  placeholder="00000-000" type="text" class="form-control" />
+          </div>
+          <div class="col-md-8 form-group">
+            <label>Endereço</label>
+            <input
+              placeholder="Ex: Rua XV de novembro"
+              formControlName="addressStreet"
+              type="text"
+              class="form-control"
+            />
+          </div>
+        </div>
       </div>
-      <div class="col-md-3 form-group">
-				<label>Data de nascimento</label>
-				<input formControlName="birthdate" type="date" class="form-control"/>
-			</div>
-      <div class="col-md-5 form-group">
-        <label>Email</label>
-        <input formControlName="email" type="text" class="form-control"/>
+      <div class="col-md-4 desktop-image">
+        <div class="result-image" *ngIf="imgSrc">
+          <img [src]="imgSrc" />
+          <div class="overlap-button" (click)="openImageSelectModal()">
+            <span><i class="fas fa-camera"></i>Selecionar foto</span>
+          </div>
+        </div>
       </div>
-      <div class="col-md-3  form-group">
-        <label>CPF</label>
-        <input formControlName="cpf" type="text" class="form-control"/>
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-2 form-group">
+            <label>Número</label>
+            <input
+              placeholder="Ex: 123"
+              formControlName="addressNumber"
+              type="number"
+              class="form-control"
+            />
+          </div>
+          <div class="col-md-4 form-group">
+            <label>Bairro</label>
+            <input
+              placeholder="Ex: Centro"
+              formControlName="addressNeighbourhood"
+              type="text"
+              class="form-control"
+            />
+          </div>
+          <div class="col-md-6 form-group">
+            <label>Complemento</label>
+            <input
+              placeholder="Ex: Apto. 62"
+              formControlName="addressComplement"
+              type="text"
+              class="form-control"
+            />
+          </div>
+          <div class="col-md-12 form-group">
+            <label>Escreva um pouco sobre você</label>
+            <textarea
+              placeholder="Ex: Eu gosto de ler..."
+              formControlName="bio"
+              type="text"
+              class="form-control"
+            ></textarea>
+          </div>
+          <div class="col-md-3 form-group">
+            <label>GRR</label>
+            <input formControlName="grr" placeholder="GRR20001234" [textMask]="{mask: grrMask}" type="text" class="form-control" />
+          </div>
+          <div class="col-md-3 form-group">
+            <label>Você está estagiando?</label>
+            <select formControlName="isEstagiando" style="width: 100%; height: 38px;" class="form-select">
+              <option [value]="false" selected>Não</option>
+              <option [value]="true">Sim</option>
+            </select>
+          </div>
+          <div class="col-md-3 form-group">
+            <label>Animal Favorito</label>
+            <input
+              placeholder="Ex: Leão"
+              formControlName="favoriteAnimal"
+              type="text"
+              class="form-control"
+            />
+          </div>
+           <div class="col-md-3 form-group">
+            <label>Cor favorita</label>
+            <input
+              formControlName="favoriteColor"
+              type="color"
+              class="form-control"
+            />
+          </div>
+          <div class="col-md-12 form-group">
+            <label>Escreva uma frase que você gosta</label>
+            <input
+              placeholder="Ex: ''Só sei que nada sei''"
+              formControlName="favoriteQuote"
+              type="text"
+              class="form-control"
+            />
+          </div>
+        </div>
       </div>
-			<div class="col-md-3 form-group">
-				<label>CEP</label>
-				<input formControlName="cep" type="text" class="form-control"/>
-			</div>
-			<div class="col-md-5 form-group">
-				<label>Endereço</label>
-				<input formControlName="addressStreet" type="text" class="form-control"/>
-			</div>
-			<div class="col-md-2 form-group">
-				<label>Número</label>
-				<input formControlName="addressNumber" type="number" class="form-control"/>
-			</div>
-			<div class="col-md-4 form-group">
-				<label>Bairro</label>
-				<input formControlName="addressNeighbourhood" type="text" class="form-control"/>
-			</div>
-			<div class="col-md-6 form-group">
-				<label>Complemento</label>
-				<input formControlName="addressComplement" type="text" class="form-control"/>
-			</div>
-			<div class="col-md-12 form-group">
-				<label>Escreva um pouco sobre você</label>
-				<textarea formControlName="bio" type="text" class="form-control"></textarea>
-			</div>
-			<div class="col-md-3 form-group">
-				<label>GRR</label>
-				<input formControlName="grr" type="text" class="form-control"/>
-			</div>
-			<div class="col-md-3 form-group">
-				<label>Você está estagiando no momento?</label>
-				<select formControlName="isEstagiando">
-          <option [value]="false" selected>Não</option>
-          <option [value]="true">Sim</option>
-        </select>
-			</div>
-			<div class="col-md-6 form-group">
-				<label>Animal Favorito</label>
-				<input formControlName="favoriteAnimal" type="text" class="form-control"/>
-			</div>
-			<div class="col-md-12 form-group">
-				<label>Escreva uma frase que você gosta</label>
-				<input formControlName="favoriteQuote" type="text" class="form-control"/>
-			</div>
-			<div class="col-md-6 form-group">
-				<label>Cor favorita</label>
-				<input formControlName="favoriteColor" type="color" class="form-control"/>
-			</div>
-      <button class="btn btn-primary" type="button" (click)="onFormSubmit()">Salvar</button>
-      <button hidden #modalBtn data-toggle="modal" data-target="#selectImageModal"></button>
-		</form>
-	</div>
+    </form>
+    <div class="row">
+      <div class="col-md-2 col-sm-6 offset-md-10 offset-sm-6">
+        <button class="btn btn-primary" style="width: 100%;" type="button" (click)="onFormSubmit()">Salvar</button>
+      </div>
+    </div>
+  </div>
 </div>
+
+ <button
+  hidden
+  #modalImageBtn
+  data-toggle="modal"
+  data-target="#selectImageModal"
+></button>
+
+<button
+  hidden
+  #modalSucessBtn
+  data-toggle="modal"
+  data-target="#successModal"
+></button>
+
+<button
+  hidden
+  #modalErrorBtn
+  data-toggle="modal"
+  data-target="#errorModal"
+></button>
 
 <div class="modal fade" tabindex="-1" role="dialog" id="selectImageModal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Selecionar imagem</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <img-cropper #cropper [image]="data" [settings]="cropperSettings"></img-cropper>
+        <img-cropper
+          #cropper
+          [image]="data"
+          [settings]="cropperSettings"
+        ></img-cropper>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" (click)="saveImg()" data-dismiss="modal">Salvar</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">
+          Fechar
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="saveImg()"
+          data-dismiss="modal"
+          [disabled]="!data?.image"
+        >
+          Salvar
+        </button>
       </div>
     </div>
   </div>
 </div>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="successModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Sucesso</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Aluno salvo com sucesso!</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="errorModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Erro</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>{{errorModalText}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+

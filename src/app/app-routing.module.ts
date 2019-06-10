@@ -17,6 +17,7 @@ const routes: Routes = [
   { path: 'sobre', component: SobreComponent },
   { path: 'documentos', component: DocumentosComponent },
   { path: 'alunos', component: AlunosComponent },
+  { path: 'alunos/:id', component: CadastroAlunoComponent },
   { path: 'contato', component: ContatoComponent },
   { path: 'desenvolvedores', component: DesenvolvedoresComponent },
   { path: '**', component: NotFoundComponent }

@@ -39,7 +39,7 @@ export class AlunoService {
   }
 
   public getAluno(index: number): Aluno {
-    return this.alunosList[index];
+    return this.alunosList[index - 1];
   }
 
   public addAluno(aluno: Aluno) {
@@ -47,7 +47,7 @@ export class AlunoService {
   }
 
   public updateAluno(aluno: Aluno, index: number) {
-    this.alunosList[index] = aluno;
+    this.alunosList[index - 1] = aluno;
   }
 
   public removeAluno(index: number) {
