@@ -14,6 +14,9 @@ import { CadastroAlunoComponent } from './components/cadastro-aluno/cadastro-alu
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ImageCropperComponent } from 'ng2-img-cropper';
 
+// Directives
+import { TextMaskModule } from 'angular2-text-mask';
+
 // Services
 import { AlunoService } from './services/aluno.service';
 import { FooterComponent } from './components/footer/footer.component';
@@ -41,7 +44,8 @@ import { DesenvolvedoresComponent } from './components/desenvolvedores/desenvolv
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    TextMaskModule
   ],
   providers: [
     AlunoService

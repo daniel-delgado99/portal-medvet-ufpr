@@ -41,7 +41,7 @@ $background-color: #fff;
       }
 		}
 
-		select {
+		select:not(.form-select) {
 			background-color: $secondary-color !important;
 			color: $navbar-text-color !important;
 		}
@@ -65,6 +65,14 @@ $background-color: #fff;
 				background-color: $terciary-color;
 			}
 		}
+
+    .aluno-card {
+      border-color: $primary-color;
+
+      &:hover {
+				background-color: $terciary-color !important;
+      }
+    }
 
     .footer {
       background-color: $primary-color;
