@@ -1,5 +1,5 @@
 .carousel-container {
-  width: 70%;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -20,4 +20,24 @@
   .carousel-container {
     width: 100%;
   }
+  .content-container.home[_ngcontent-c3] > div[_ngcontent-c3] {
+    width: 350px;
+    margin-top: -40px;
+    margin-left: -35px;
+  }
+}
+.content-container.home > div {
+  width: 1350px;
+  margin-left: -167px;
+  margin-top: -40px;
+}
+#carouselExampleIndicators > div > div.carousel-item > img{
+  max-height: 500px;
+}
+.imgpatas{
+  margin-left: -170px;
+  max-height: 60px;
+  width: 100%;
+  width: 1400px;
+  FILTER: sepia(70%) contrast(110%) opacity(35%) saturate(400%);
 }

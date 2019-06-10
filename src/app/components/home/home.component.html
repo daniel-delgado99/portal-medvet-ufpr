@@ -52,7 +52,8 @@
         role="button"
         data-slide="prev"
       >
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="carousel-control" aria-hidden="true"><i style="color: black;
+          font-size: 30px !important;" class="fas fa-angle-left"></i></span>
         <span class="sr-only">Previous</span>
       </a>
       <a
@@ -61,17 +62,18 @@
         role="button"
         data-slide="next"
       >
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="carousel-control" aria-hidden="true"><i style="color: black;
+          font-size: 30px !important;" class="fas fa-angle-right"></i></span>
         <span class="sr-only">Next</span>
       </a>
     </div>
   </div>
 </div>
-<hr class="section-divider" />
+<img class="imgpatas" src="/../assets/imgs/banner/cta_bottom_section_bg.jpg" alt="bannerr">
 <div class="page-limiter">
   <div class="row">
     <div class="col-md-12">
-      <div class="avisos-container col-md-6">
+      <div class="avisos-container col-md-8">
         <h3>Avisos</h3>
         <div class="aviso" *ngFor="let aviso of avisos; let i = index">
           <h6 class="aviso-title">{{ aviso.title }}</h6>
